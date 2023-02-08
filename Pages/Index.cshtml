@@ -1,0 +1,55 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="text-center">
+    <img class="img-fluid rounded-circle" src="https://media.licdn.com/dms/image/D4E03AQGYwQSk0wsQGg/profile-displayphoto-shrink_200_200/0/1671471168580?e=1681344000&v=beta&t=t8Abxxd9wb6uFw87TO_BdbtwsbwB1QPQuI24hZK2VIU" />
+</div>
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">@Model.Robin.Name</h1>
+        <h2 class="text-center">@Model.Robin.Title</h2>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h3>Contact Information</h3>
+            <p><strong>Email:</strong> @Model.Robin.Email</p>
+            <p><strong>Phone:</strong> @Model.Robin.Phone</p>
+            <p><strong>Location:</strong> @Model.Robin.Location</p>
+        </div>
+        <div class="col-md-6">
+            <h3>Proffesional Summary</h3>
+            <p>@Model.Robin.Description</p>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h3>Skills</h3>
+                <ul>
+                    @foreach (var skill in Model.Robin.Skills)
+                    {
+                        <li>@skill.SkillName @skill.Level ⭐</li>
+
+                    }
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Work Experience</h3>
+                <ul>
+                    @foreach (var work in Model.Robin.WorkExperience)
+                    {
+                        <li>
+                            <strong>@work.Company</strong> <br />
+                            <em>@work.Role</em> <br />
+                            <em>@work.Duration</em>
+                            <em>@work.Responsibilities</em>
+                        </li>
+                    }
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
